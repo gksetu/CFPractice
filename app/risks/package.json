@@ -1,0 +1,25 @@
+{
+    "name": "risks",
+    "version": "0.0.1",
+    "description": "Risks",
+    "keywords": [
+        "ui5",
+        "openui5",
+        "sapui5"
+    ],
+    "main": "webapp/index.html",
+    "scripts": {
+        "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf",
+        "undeploy": "cf undeploy undefined --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "devDependencies": {
+        "@ui5/cli": "^3.2.0",
+        "@ui5/fs": "^3.0.4",
+        "@ui5/logger": "^3.0.0",
+        "@sap/ux-ui5-tooling": "^1.10.0",
+        "rimraf": "^5.0.1",
+        "@sap/ux-specification": "^1.108.7"
+    }
+}
